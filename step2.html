@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Week6 Validation</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // dropdown open/close
+            $(".dropdown__btn").click(function(){
+                $(this).parents(".dropdown").toggleClass("is-open");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="app">
+        <div class="sign">
+            <div class="progress-bar">
+                <!-- 進度條寬度為 step 總數量減1，再乘以 step 完成數量 -->
+                <div class="progress-bar-line" style="width:calc( ( 100% / (4 - 1) ) * 1 );"></div>
+                <div class="progress-bar_step is-done"></div>
+                <div class="progress-bar_step in-progress"></div>
+                <div class="progress-bar_step"></div>
+                <div class="progress-bar_step"></div>
+            </div>
+            <div class="sign__main">
+                <div class="sign-form">
+                    <div class="form-heading">
+                        <h1>General Infomation</h1>
+                        <h2>Tell us who you are!</h2>
+                    </div>
+                    <div class="form-item-group">
+                        <div class="form-item">
+                            <div class="form-item__title">
+                                Name 
+                                <span>(optional)</span>
+                            </div>
+                            <input type="text" class="item-data">
+                        </div>
+                        <div class="form-item">
+                            <div class="form-item__title">Phone*</div>
+                            <input type="text" class="item-data">
+                            <div class="item-alert">
+                                <span>numbers only</span>
+                            </div>
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                    </div>
+                    <div class="form-item-group">
+                        <div class="form-item">
+                            <div class="form-item__title">
+                                Birth Date 
+                                <span>(optional)</span>
+                            </div>
+                            <input type="date" class="item-data">
+                        </div>
+                    </div>
+                    <div class="form-item-group">
+                        <div class="form-item">
+                            <div class="form-item__title">
+                                Address
+                            </div>
+                            <div class="dropdown">
+                                <div class="dropdown__btn">
+                                    <span>Westeros</span>
+                                    <i class="fas fa-caret-down"></i>
+                                </div>
+                                <div class="dropdown__list">
+                                    <div class="dropdown__item"><span>Westeros</span></div>
+                                    <div class="dropdown__item"><span>Essos</span></div>
+                                    <div class="dropdown__item"><span>Sothoryos</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-item">
+                            <div class="dropdown">
+                                <div class="dropdown__btn">
+                                    <span>Winterfell</span>
+                                    <i class="fas fa-caret-down"></i>
+                                </div>
+                                <div class="dropdown__list">
+                                    <div class="dropdown__item"><span>Winterfell</span></div>
+                                    <div class="dropdown__item"><span>Night Watch</span></div>
+                                    <div class="dropdown__item"><span>Red Castle</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-item-group">
+                        <div class="form-item">
+                            <input type="text" class="item-data" placeholder="Type your detail address here.">
+                            <div class="item-alert">
+                                <span>REQUIRED FILED</span>
+                            </div>
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="sign__btn">
+                        <a href="step3.html" class="sign-submit is-disable">
+                            <span>NEXT</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

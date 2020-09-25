@@ -1,0 +1,489 @@
+// Colors
+// -------------------------------
+$access : #0275D8;
+$disable : #BEE1FF;
+$alert : #F5A623;
+$placeholder : #9B9B9B;
+
+
+
+// Basic settings
+// -------------------------------
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+* { box-sizing: border-box; }
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+
+input[type="file"] {
+    appearance: none;
+    opacity: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    appearance: none;
+}
+
+
+// Components
+// -------------------------------
+.dropdown {
+    position: relative;
+    width: 100%;
+
+    &__btn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        width: 100%;
+        height: 50px;
+        border: 2px solid #000;
+        border-radius: 8px;
+        background-color: #fff;
+        cursor: pointer;
+    }
+
+    &__list {
+        display: none;
+        position: absolute;
+        width: 100%;
+        max-height: 140px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        overflow-y: scroll;
+    }
+
+    &__item {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        padding: 0 20px;
+        cursor: pointer;
+        background-color: #fff;
+
+        &:hover {
+            font-weight: bold;
+        }
+    }
+}
+
+.is-open {
+    .dropdown__list {
+        display: block;
+        box-shadow: 0px 4px 11px 0px #424242;
+        z-index: 1;
+    }
+}
+
+
+.item-alert {
+    position: absolute;
+    left: 100%;
+    bottom: 0;
+    margin-bottom: 12px;
+    margin-left: 12px;
+    display: none;
+    padding: .5em;
+    white-space: nowrap;
+    text-transform: uppercase;
+    background-color: $alert;
+    color: #fff;
+    font-weight: 300;
+    font-size: .8rem;
+    z-index: 1;
+
+    &::after {
+        content : "";
+        position: absolute;
+        left: -4px;
+        top: 50%;
+        margin-top: -4px;
+        transform: rotate(45deg);
+        width: 8px;
+        height: 8px;
+        background-color: $alert;
+    }
+}
+
+
+.warning {
+    display: none;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 24px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    background-color: $alert;
+    color: #fff;
+
+    i.fas {
+        position: unset;
+        display: inline;
+        color: #fff;
+        margin-right: 8px;
+    }
+
+    span {
+        text-transform: uppercase;
+    }
+
+    &.is-display {
+        display: block;
+    }
+}
+
+
+
+// App & Sign
+// -------------------------------
+.sign {
+    margin: auto;
+    width: 460px;
+    border-top: 8px solid $access;
+
+    // progress-bar
+    .progress-bar {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 48px auto;
+        width: 50%;
+        height: 2px;
+        background-color: $disable;
+
+        &-line {
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            background-color: $access;
+        }
+
+
+        // progress-bar_step  (circle outside)
+        &_step {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 16px;
+            height: 16px;
+            border: 2px solid $disable;
+            border-radius: 100px;
+            text-align: center;
+            background-color: #fff;
+            z-index: 1;
+
+            // (circle inside)
+            &::before {
+                content: "";
+                display: none;
+                width: 8px;
+                height: 8px;
+                background-color: $access;
+                border-radius: 100px;
+            }
+
+            // first step is line off
+            &:first-of-type {
+                &::after {
+                    display: none;
+                }
+            }
+
+            // when progress is-done, change icon
+            &.is-done {
+                &::before {
+                    content: "\f058";
+                    display: block;
+                    font-family: "Font Awesome 5 Free";
+                    font-weight: 900;
+                    width: 16px;
+                    height: 16px;
+                    color: $access;
+                    background-color: unset;
+                }
+            }
+
+            // when progress is in-progress, display the circle inside
+            &.in-progress {
+                border-color: $access;
+    
+                &::before {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .form-heading {
+        text-align: center;
+        margin-top: 48px;
+        margin-bottom: 24px;
+
+        h1 {
+            font-weight: 300;
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-weight: 300;
+            font-size: 1.5rem;
+        }
+    }
+
+    &__main {
+
+        .form-item-group {
+            display: flex;
+            align-items: flex-end;
+
+            .form-item + .form-item {
+                margin-left: 24px;
+            }
+        }
+
+        .form-item {
+            position: relative;
+            width: 100%;
+            margin-top: 24px;
+
+            &__title {
+                display: block;
+                font-size: 1.2rem;
+                margin-bottom: 8px;
+
+                span {
+                    font-size: 1rem;
+                    font-weight: 300;
+                }
+            }
+
+            select {
+                width: 100%;
+                padding: 11px 24px;
+                border: 2px solid #000;
+                border-radius: 8px;
+                outline: none;
+                font-size: 1.2rem;
+            }
+        }
+
+        .item-data {
+            width: 100%;
+            line-height: 2.4;
+            padding: 0 20px;
+            border: 2px solid #000;
+            border-radius: 8px;
+            outline: none;
+            font-size: 1.2rem;
+
+            &::placeholder {
+                font-weight: 400;
+                font-size: 1.2rem;
+                color: $placeholder;
+            }
+        }
+
+        .alert-on {
+    
+            .item-alert {
+                display: block;
+            }
+        
+            .item-data {
+                border-color: $alert;
+            }
+
+            .fa-exclamation-triangle {
+                display: block;
+            }
+        }
+    }
+
+    &__btn {
+        margin-top: 48px;
+
+        .sign-submit {
+            width: 100%;
+            text-align: center;
+            padding: 1em;
+            border-radius: 8px;
+            background-color: $access;
+
+            span {
+                font-size: 1.2rem;
+                color: #fff;
+            }
+
+            &.is-disable {
+                background-color: $disable;
+            }
+        }
+    }
+
+    .fa-exclamation-triangle {
+        display: none;
+        position: absolute;
+        right: 16px;
+        bottom: 0;
+        margin-bottom: 15px;
+        font-size: 20px;
+        color: $alert;
+    }
+
+    &-done {
+        margin: auto;
+
+        .done-msg {
+            text-align: center;
+
+            i {
+                display: block;
+                margin: 48px 0;
+                font-size: 200px;
+                color: $disable;
+            }
+
+            span {
+                font-style: italic;
+                font-size: 1.5rem;
+                color: $access;
+            }
+        }
+    }
+}
+
+
+
+// upload
+// ---------------
+.upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px; 
+    width: 100%;
+    height: 140px;
+    border: 2px solid #000;
+    border-radius: 8px;
+    color: $placeholder;
+    cursor: pointer;
+
+    input {
+        position: absolute;
+        cursor: pointer;
+    }
+
+    &__inner {
+        display: flex;
+        align-items: center;
+    }
+
+    [class*="upload-"] + [class*="upload-"] {
+        margin-left: 16px;
+    }
+
+    &-icon {
+        flex: 1 0 auto;
+        font-size: 3rem;
+    }
+
+    &-remind {
+        display: flex;
+        flex-direction: column;
+
+        span + span {
+            margin-top: 8px;
+        }
+
+        span {
+            font-weight: 300;
+        }
+
+        span:first-of-type {
+            font-size: 1.5rem;
+        }
+
+        span:last-of-type {
+            font-size: 1rem;
+        }
+    }
+}
+
+.upload-img-wrap {
+    display: flex;
+    justify-content: space-between;
+
+    .upload-img {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        border-radius: 8px;
+
+        &.oversize {
+            border: 2px solid $alert;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            display: none;
+            bottom: 0;
+            width: 100%;
+            height: 40%;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            background-color: $access;
+            cursor: pointer;
+        }
+
+        &::after {
+            content: "\f2ed";
+            position: absolute;
+            display: none;
+            bottom: 16px;
+            left: 50%;
+            margin-left: -12px;
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        &:hover {
+
+            &::before, 
+            &::after {
+                display: block;
+            }
+        }
+    }
+}
+
+

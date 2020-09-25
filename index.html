@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Week6 Validation</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app">
+        <div class="sign">
+            <div class="progress-bar">
+                <!-- 進度條寬度為 step 總數量減1，再乘以 step 完成數量 -->
+                <div class="progress-bar-line" style="width:calc( ( 100% / (4 - 1) ) * 0 );"></div>
+                <div class="progress-bar_step in-progress"></div>
+                <div class="progress-bar_step"></div>
+                <div class="progress-bar_step"></div>
+                <div class="progress-bar_step"></div>
+            </div>
+            <div class="sign__main">
+                <div class="sign-form">
+                    <div class="form-heading">
+                        <h1>Creat Account</h1>
+                        <h2>Glad to see you here!</h2>
+                    </div>
+                    <div class="form-item alert-on">
+                        <div class="form-item__title">Account</div>
+                        <input type="email" class="item-data" placeholder="example@gmail.com">
+                        <div class="item-alert">
+                            <span>invalid email</span>
+                        </div>
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-item__title">Password</div>
+                        <input type="password" class="item-data" placeholder="••••••••">
+                        <div class="item-alert">
+                            <span>minimum 8 characters</span>
+                        </div>
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="form-item">
+                        <div class="form-item__title">Comfirm Password</div>
+                        <input type="password" class="item-data" placeholder="••••••••">
+                        <div class="item-alert">
+                            <span>not match</span>
+                        </div>
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="sign__btn">
+                <a href="step2.html" class="sign-submit">
+                    <span>NEXT</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

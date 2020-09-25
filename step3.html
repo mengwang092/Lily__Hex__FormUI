@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Week6 Validation</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // dropdown open/close
+            $(".dropdown__btn").click(function(){
+                $(this).parents(".dropdown").toggleClass("is-open");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="app">
+        <div class="sign">
+            <div class="progress-bar">
+                <!-- 進度條寬度為 step 總數量減1，再乘以 step 完成數量 -->
+                <div class="progress-bar-line" style="width:calc( ( 100% / (4 - 1) ) * 2 );"></div>
+                <div class="progress-bar_step is-done"></div>
+                <div class="progress-bar_step is-done"></div>
+                <div class="progress-bar_step in-progress"></div>
+                <div class="progress-bar_step"></div>
+            </div>
+            <div class="sign__main">
+                <div class="sign-form">
+                    <div class="form-heading">
+                        <h1>Update Profile Picture</h1>
+                        <h2>We wanna know you more!</h2>
+                    </div>
+                    <label class="upload">
+                        <input type="file">
+                        <div class="upload__inner">
+                            <div class="upload-icon">
+                                <i class="fas fa-images"></i>
+                            </div>
+                            <div class="upload-remind">
+                                <span>UPLOAD UP TO 3 PHOTOS</span>
+                                <span>MAX SIZE: 150*150px</span>
+                            </div>
+                        </div>
+                    </label>
+                    <div class="warning is-display">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>ONE FILE IS OVER THE MAXIMUM size</span>
+                    </div>
+                    <div class="upload-img-wrap">
+                        <div class="upload-img oversize">
+                            <img src="img/sample1.jpg" alt="">
+                        </div>
+                        <div class="upload-img">
+                            <img src="img/sample2.jpg" alt="">
+                        </div>
+                        <div class="upload-img">
+                            <img src="img/sample3.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="sign__btn">
+                        <a href="step4.html" class="sign-submit is-disable">
+                            <span>NEXT</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
